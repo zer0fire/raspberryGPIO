@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="OpenFans">
+  <widget class="QPushButton" name="OpenFansButton">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -26,7 +26,7 @@
     <string>Open</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="CloseFans">
+  <widget class="QPushButton" name="CloseFansButton">
    <property name="geometry">
     <rect>
      <x>540</x>
@@ -39,7 +39,7 @@
     <string>Close</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="textBrowser">
+  <widget class="QTextBrowser" name="Year">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -49,7 +49,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="textBrowser_2">
+  <widget class="QTextBrowser" name="Time">
    <property name="geometry">
     <rect>
      <x>540</x>
@@ -59,7 +59,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="Page1">
+  <widget class="QPushButton" name="Page1Button">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -72,7 +72,7 @@
     <string>仪表</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Page2">
+  <widget class="QPushButton" name="Page2Button">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -85,7 +85,7 @@
     <string>按键</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Page3">
+  <widget class="QPushButton" name="Page3Button">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -100,5 +100,93 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>OpenFansButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>OpenFans()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>377</x>
+     <y>379</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CloseFansButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>CloseFans()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>662</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>745</x>
+     <y>375</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Page1Button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>DashBoardPage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>240</x>
+     <y>15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Page2Button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>ControlButtonPage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>280</x>
+     <y>52</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Page3Button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>AdditionPage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>256</x>
+     <y>81</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OpenFans()</slot>
+  <slot>CloseFans()</slot>
+  <slot>DashBoardPage()</slot>
+  <slot>ControlButtonPage()</slot>
+  <slot>AdditionPage()</slot>
+ </slots>
 </ui>
