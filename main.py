@@ -15,15 +15,15 @@ class mywindow(QtWidgets.QWidget, Ui_Form):
         self.setWindowTitle("RaspberryPI")
         #self.setWindowTitle("mywindow")
         #self.setWindowIcon(QIcon("title.ico"))
-        self.helloButton.setToolTip("This is a <b>QPushButon</b> widget")
+        self.OpenFansButton.setToolTip("This is a <b>QPushButon</b> widget")
 
     def OpenFans(self):
         self.Status.setText("状态：打开")
-        os.popen('mosquitto_pub -t gpio -h *** -m "{\"pin\":17,\"value\":1}"')
+        os.popen('mosquitto_pub -t gpio -h 1.1.1.1 -m "{\"pin\":17,\"value\":1}"')
 
     def CloseFans(self):
         self.Status.setText("状态：关闭")
-        os.popen('mosquitto_pub -t gpio -h *** -m "{\"pin\":17,\"value\":0}"')
+        os.popen('mosquitto_pub -t gpio -h 1.1.1.1 -m "{\"pin\":17,\"value\":0}"')
 
     def DashBoardPage(self):
         pass
