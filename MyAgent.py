@@ -24,15 +24,6 @@ class Ui_Form(object):
         self.Time = QtWidgets.QTextBrowser(Form)
         self.Time.setGeometry(QtCore.QRect(520, 40, 171, 121))
         self.Time.setObjectName("Time")
-        self.Page1Button = QtWidgets.QPushButton(Form)
-        self.Page1Button.setGeometry(QtCore.QRect(0, 40, 121, 31))
-        self.Page1Button.setObjectName("Page1Button")
-        self.Page2Button = QtWidgets.QPushButton(Form)
-        self.Page2Button.setGeometry(QtCore.QRect(0, 70, 121, 31))
-        self.Page2Button.setObjectName("Page2Button")
-        self.Page3Button = QtWidgets.QPushButton(Form)
-        self.Page3Button.setGeometry(QtCore.QRect(0, 100, 121, 31))
-        self.Page3Button.setObjectName("Page3Button")
         self.Status = QtWidgets.QTextBrowser(Form)
         self.Status.setGeometry(QtCore.QRect(310, 170, 171, 61))
         self.Status.setObjectName("Status")
@@ -40,9 +31,6 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         self.OpenFansButton.clicked.connect(Form.OpenFans)
         self.CloseFansButton.clicked.connect(Form.CloseFans)
-        self.Page1Button.clicked.connect(Form.DashBoardPage)
-        self.Page2Button.clicked.connect(Form.ControlButtonPage)
-        self.Page3Button.clicked.connect(Form.AdditionPage)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
@@ -50,9 +38,6 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.OpenFansButton.setText(_translate("Form", "Open"))
         self.CloseFansButton.setText(_translate("Form", "Close"))
-        self.Page1Button.setText(_translate("Form", "仪表"))
-        self.Page2Button.setText(_translate("Form", "按键"))
-        self.Page3Button.setText(_translate("Form", "附加项"))
         self.Status.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

@@ -5,7 +5,7 @@ import json
 
 #BCM GPIO编号
 pins = [17, 18, 27, 22, 23, 24, 25, 4]
-def gpio_setup():
+def gpio_init():
     #采用BCM编号
     GPIO.setmode(GPIO.BCM)
     #设置所有GPIO为输出状态，且输出低电平
@@ -13,18 +13,19 @@ def gpio_setup():
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, GPIO.LOW)
         
-def gpio_destroy():
+def gpio_close():
     for pin in pins:
-        GPIO.output(pin, GPIO.LOW)
         GPIO.setup(pin, GPIO.IN)
+        GPIO.output(pin, GPIO.LOW)
+        
 
 #连接并返回成功        
-def on_connect(client, userdata, flags, rc):
+def connect_complete(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
     client.subscribe("gpio")
     
 #消息推送和控制GPIO
-def on_message(client, userdata, msg):
+def recive_message(client, userdata, msg):
    print(msg.topic+" "+str(msg.payload))
    gpio = json.loads(str(msg.payload).decode("utf-8"))
    if gpio['pin'] in pins:
@@ -35,9 +36,9 @@ def on_message(client, userdata, msg):
          
 if __name__ == '__main__':
     client = mqtt.Client()
-    client.on_connect = on_connect
-    client.on_message = on_message
-    gpio_setup
+    client.connect_complete = connect_complete
+    client.recive_message = recive_message
+    gpio_init
     
     try:
     #服务器地址根据实际情况可以改变
@@ -45,5 +46,5 @@ if __name__ == '__main__':
         client.loop_forever
     except KeyboardInterrupt:
         client.disconnect()
-        gpio_destroy
+        gpio_close
     
